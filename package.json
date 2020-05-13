@@ -1,0 +1,27 @@
+{
+  "name": "tip_a_teacher_website",
+  "version": "1.0.0",
+  "description": "Final Project slash tip a teacher API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js",
+    "run_server": "http-server ./dist -p 3000",
+    "start": "npm run build && npm run run_server"
+  },
+  "author": "Keefe Ignat",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "firebase": "^7.14.3",
+    "http-server": "^0.12.3"
+  }
+}

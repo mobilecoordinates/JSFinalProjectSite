@@ -40,12 +40,24 @@ const List = function () {
                 <td>${teacherObj.school}</td>
                 <td>${teacherObj.city}</td>
                 <td>${teacherObj.state}</td>
-                <td><a id=${teacherId} href="#/profile" class="btn btn-success">View</a></td>
+                <td><a id=${teacherId} href="#/profile" class="btn btn-success view-profile-button">View</a></td>
                 </tr>
                 `;
             };
 
-            renderedTable.innerHTML += renderTeacherRow(teacher);            
+            renderedTable.innerHTML += renderTeacherRow(teacher); 
+            
+            //add onclick for the profile view button
+            document.addEventListener('click', (event) => {
+                if (event.target.classList.contains('view-profile-button')) {
+    
+                    event.preventDefault();
+    
+                    window.localStorage.setItem('teacherId', event.target.id);
+                
+                    window.location.hash = '/profile';
+                };
+            });
 
         }
     });

@@ -1,12 +1,21 @@
 import firebaseInstance from "../../firebase_config";
 
 const Profile = function () {
+  
+  firebaseInstance
+  .ref("teachers")
+  .child(window.localStorage.getItem("teacherId"))
+  .on("value", (result) => {
 
-    const initalProfileHtml = `
+    const teacherObj = result.val();
+
+    document
+    .getElementById("app")
+    .innerHTML = `
     <div class="flex-container">
     <div class="flex-box">
       <div id="left-profile">
-        <img src="http://mosley.aurorak12.org/wp-content/uploads/sites/181/2015/05/Kristin-Tousley.jpg" alt="profile image" id="profile-img">
+        <img src="${teacherObj.img}">
       </div>
       <a href="#/list" class="btn btn-dark navbuttons">Back</a>
     </div>
@@ -15,27 +24,23 @@ const Profile = function () {
         <table id="contact-card">
               <tr>
                 <td><b>Name</b></td>
-                <td>Kristin Tousley</td>
+                <td>${teacherObj.firstName} ${teacherObj.lastName}</td>
               </tr>
               <tr>
                 <td><b>School:</b></td>
-                <td>ABC Elementary School</td>
-              </tr>
-              <tr>
-                <td><b>Grade(s) Taught:</b></td>
-                <td>2nd and 3rd</td>
+                <td>${teacherObj.school}</td>
               </tr>
               <tr>
                 <td><b>Subject(s) Taught:</b></td>
-                <td>Math, English, Social Studies</td>
+                <td>${teacherObj.subjects}</td>
               </tr>
               <tr>
                 <td><b>Hobbies:</b></td>
-                <td>Jogging, Hiking, Spending time with family</td>
+                <td>${teacherObj.hobbies}</td>
               </tr>
               <tr>
                 <td><b>About Me:</b></td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</td>
+                <td>${teacherObj.about}</td>
               </tr>
         </table>
       </div>
@@ -45,12 +50,9 @@ const Profile = function () {
       </form>
     </div>
   </div>
-
     `;
 
-  document
-  .getElementById("app")
-  .innerHTML = initalProfileHtml;  
+  });
     
 	document
 	.querySelector("#tip-submit")
@@ -91,12 +93,24 @@ const Profile = function () {
 
             //capture id
 
-            //capture amount
+            const teacherId = window.localStorage.getItem("teacherId")
+
+            //create obj
+
+            var transaction = {
+              time: timeStamp,
+              teacherId: teacherId,
+              amount: tipAmount
+            }
 
             //push to firebase
 
+            firebaseInstance.ref("transactions").push(transaction);
+
             // This function shows a transaction success message to your buyer.
-            alert('Thank you ' + details.payer.name.given_name);
+            alert('Thank you ' + details.payer.name.given_name) + `, your generosity has made a difference in someone's life.`;
+
+            window.location.hash = '/list';
           });
         }
       }).render('#paypal-module');

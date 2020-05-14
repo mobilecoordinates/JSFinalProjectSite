@@ -17,7 +17,6 @@ const Profile = function () {
       <div id="left-profile">
         <img src="${teacherObj.img}">
       </div>
-      <a href="#/list" class="btn btn-dark navbuttons">Back</a>
     </div>
     <div class="flex-box">
       <div id="right-profile">
@@ -47,6 +46,7 @@ const Profile = function () {
       <form id="tip-submit">
         <input type="text" id="tip-input" value="0">
         <input type="submit" class="btn tip-button btn-success navbuttons" value="TIP!"></input>
+        <a href="#/list" class="btn btn-dark navbuttons">Back</a>
       </form>
     </div>
   </div>
@@ -108,7 +108,7 @@ const Profile = function () {
             firebaseInstance.ref("transactions").push(transaction);
 
             // This function shows a transaction success message to your buyer.
-            alert('Thank you ' + details.payer.name.given_name) + `, your generosity has made a difference in someone's life.`;
+            alert('Thank you ' + details.payer.name.given_name + `, your generosity has made a difference in someone's life.`);
 
             window.location.hash = '/list';
           });

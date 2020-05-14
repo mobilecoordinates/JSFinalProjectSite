@@ -1,9 +1,11 @@
 import List from "./pages/List";
 import Profile from "./pages/Profile";
+import NewTeacher from "./pages/NewTeacher";
 
 const routes = {
   "/list": List,
   "/profile": Profile,
+  "/newteacher": NewTeacher
 };
 
 window.addEventListener("hashchange", (event) => {
@@ -11,9 +13,9 @@ window.addEventListener("hashchange", (event) => {
 
   if (currentRoute) {
     return routes[currentRoute]();
+  } else {
+    List();
   }
-
-  List();
 });
 
 document.addEventListener("DOMContentLoaded", function() {

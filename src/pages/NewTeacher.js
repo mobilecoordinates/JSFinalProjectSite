@@ -45,7 +45,7 @@ const NewTeacher = function () {
             <label>Profile Picture</label>
             <input name="img" type="text" class="form-control"/> 
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-success">Submit</button>
     </form>
     </div>
     `

@@ -1,0 +1,89 @@
+.form-box {
+  width: 380px;
+  background-color: rgb(243, 243, 243);
+  border: 3px solid rgb(224, 224, 224);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#contact-card {
+  margin-top: 30px;
+  vertical-align: top;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    vertical-align: top;
+  }
+
+  #left-profile {
+    height: auto;
+    width: auto;
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(237, 241, 245);
+    border: solid 3px rgb(222, 226, 230);
+  }
+
+  #right-profile {
+    height: 600px;
+    width: 400px;
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(242, 253, 246);
+    border: solid 3px rgb(223, 233, 226);
+  }
+
+  #profile-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+    margin-top: 30px; 
+  }
+
+  .flex-box {
+    text-align: center;
+  }
+
+td {
+  text-align: left;
+}
+
+#paypal-module {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#tip-input {
+  width: 50px;
+}
+
+#teachers-table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#teachers-table td, #teachers-table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#teachers-table tr:nth-child(even){background-color: #f2f2f2;}
+
+#teachers-table tr:hover {background-color: #ddd;}
+
+#teachers-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
